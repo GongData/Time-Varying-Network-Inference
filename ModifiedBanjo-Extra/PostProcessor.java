@@ -1,4 +1,10 @@
 /*
+*  Kevin Damazyn add some functions in the original code written by Hartemink at Duke
+* to implement some new functions in March 2015
+*/
+
+
+/*
  * Created on Mar 29, 2005
  * 
  * This file is part of Banjo (Bayesian Network Inference with Java Objects)
