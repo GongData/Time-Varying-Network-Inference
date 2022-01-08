@@ -1,0 +1,115 @@
+MODULE main
+
+  VAR
+
+		eve: {-1, 0, 1};
+		gfl.lmd: {-1, 0, 1};
+		twi: {-1, 0, 1};
+		mlc1: {-1, 0, 1};
+		sls: {-1, 0, 1};
+		mhc: {-1, 0, 1};
+		prm: {-1, 0, 1};
+		actn: {-1, 0, 1};
+		up: {-1, 0, 1};
+		myo61f: {-1, 0, 1};
+		msp300: {-1, 0, 1};
+
+
+    ASSIGN
+
+		init(eve) := {-1, 0};
+		init(gfl.lmd) := {-1, 0};
+		init(twi) := {-1, 0};
+		init(mlc1) := {-1, 0};
+		init(sls) := {-1, 0};
+		init(mhc) := {-1, 0};
+		init(prm) := {-1, 0};
+		init(actn) := {-1, 0};
+		init(up) := {-1, 0};
+		init(myo61f) := {-1, 0};
+		init(msp300) := {-1, 0};
+
+	 next(eve) := 
+		 case 
+ 			  24*myo61f +  -14*actn +  -5*sls +  1236*gfl.lmd > 0  : 1; 
+ 			  24*myo61f +  -14*actn +  -5*sls +  1236*gfl.lmd = 0  : 0; 
+ 			  24*myo61f +  -14*actn +  -5*sls +  1236*gfl.lmd < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(gfl.lmd) := 
+		 case 
+ 			  9762*msp300 +  0*prm +  0*mhc +  0*mlc1 > 0  : 1; 
+ 			  9762*msp300 +  0*prm +  0*mhc +  0*mlc1 = 0  : 0; 
+ 			  9762*msp300 +  0*prm +  0*mhc +  0*mlc1 < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(twi) := 
+		 case 
+ 			  630*myo61f +  601*sls +  630*gfl.lmd +  -611*eve > 0  : 1; 
+ 			  630*myo61f +  601*sls +  630*gfl.lmd +  -611*eve = 0  : 0; 
+ 			  630*myo61f +  601*sls +  630*gfl.lmd +  -611*eve < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(mlc1) := 
+		 case 
+ 			  5030*gfl.lmd +  -4585*eve > 0  : 1; 
+ 			  5030*gfl.lmd +  -4585*eve = 0  : 0; 
+ 			  5030*gfl.lmd +  -4585*eve < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(sls) := 
+		 case 
+ 			  -85*twi > 0  : 1; 
+ 			  -85*twi = 0  : 0; 
+ 			  -85*twi < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(mhc) := mhc;
+
+	 next(prm) := prm;
+
+	 next(actn) := 
+		 case 
+ 			  2246*msp300 +  2246*gfl.lmd > 0  : 1; 
+ 			  2246*msp300 +  2246*gfl.lmd = 0  : 0; 
+ 			  2246*msp300 +  2246*gfl.lmd < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(up) := up;
+
+	 next(myo61f) := 
+		 case 
+ 			  -1236*actn +  5*sls +  14*gfl.lmd +  5*eve > 0  : 1; 
+ 			  -1236*actn +  5*sls +  14*gfl.lmd +  5*eve = 0  : 0; 
+ 			  -1236*actn +  5*sls +  14*gfl.lmd +  5*eve < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(msp300) := 
+		 case 
+ 			  0*mlc1 +  381*gfl.lmd > 0  : 1; 
+ 			  0*mlc1 +  381*gfl.lmd = 0  : 0; 
+ 			  0*mlc1 +  381*gfl.lmd < 0  : -1; 
+ 			 
+ 		 esac; 
+
+SPEC A(msp300 = 1 -> AX(mlc1 = 1))
+
+SPEC AG(msp300 = 1 -> AF(twi <=0) )
+
+SPEC AG(msp300 = 1 -> AF(twi >0) )
+
+SPEC AG(mhc =1 -> AF(prm > 0 & mlc1 > 0 & up = 1))
+
+SPEC AG((mlc1 = 1 | msp300= 1 -> AF(twi <= 0 & up >= 0)))
+
+SPEC EG((mlc1 = 1 | msp300= 1 -> EF(twi <= 0 & up >= 0)))
+
+SPEC AG((mhc = 1 -> AF(msp300 = 1)) -> EF(msp300 = 1 -> mhc <= 0))
+

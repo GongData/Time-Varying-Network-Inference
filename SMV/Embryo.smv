@@ -1,0 +1,127 @@
+MODULE main
+
+  VAR
+
+		eve: {-1, 0, 1};
+		gfl.lmd: {-1, 0, 1};
+		twi: {-1, 0, 1};
+		mlc1: {-1, 0, 1};
+		sls: {-1, 0, 1};
+		mhc: {-1, 0, 1};
+		prm: {-1, 0, 1};
+		actn: {-1, 0, 1};
+		up: {-1, 0, 1};
+		myo61f: {-1, 0, 1};
+		msp300: {-1, 0, 1};
+
+
+    ASSIGN
+
+		init(eve) := {-1, 0};
+		init(gfl.lmd) := {-1, 0};
+		init(twi) := {-1, 0};
+		init(mlc1) := {-1, 0};
+		init(sls) := {-1, 0};
+		init(mhc) := {-1, 0};
+		init(prm) := {-1, 0};
+		init(actn) := {-1, 0};
+		init(up) := {-1, 0};
+		init(myo61f) := {-1, 0};
+		init(msp300) := {-1, 0};
+
+	 next(eve) := 
+		 case 
+ 			  2513*msp300 +  -2487*sls > 0  : 1; 
+ 			  2513*msp300 +  -2487*sls = 0  : 0; 
+ 			  2513*msp300 +  -2487*sls < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(gfl.lmd) := 
+		 case 
+ 			  -5447*myo61f > 0  : 1; 
+ 			  -5447*myo61f = 0  : 0; 
+ 			  -5447*myo61f < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(twi) := 
+		 case 
+ 			  -1857*sls +  2096*eve > 0  : 1; 
+ 			  -1857*sls +  2096*eve = 0  : 0; 
+ 			  -1857*sls +  2096*eve < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(mlc1) := 
+		 case 
+ 			  614*msp300 +  633*up +  633*prm +  633*mhc > 0  : 1; 
+ 			  614*msp300 +  633*up +  633*prm +  633*mhc = 0  : 0; 
+ 			  614*msp300 +  633*up +  633*prm +  633*mhc < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(sls) := 
+		 case 
+ 			  -5665*eve > 0  : 1; 
+ 			  -5665*eve = 0  : 0; 
+ 			  -5665*eve < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(mhc) := 
+		 case 
+ 			  614*msp300 +  633*up +  633*prm +  633*mlc1 > 0  : 1; 
+ 			  614*msp300 +  633*up +  633*prm +  633*mlc1 = 0  : 0; 
+ 			  614*msp300 +  633*up +  633*prm +  633*mlc1 < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(prm) := 
+		 case 
+ 			  614*msp300 +  633*up +  633*mhc +  633*mlc1 > 0  : 1; 
+ 			  614*msp300 +  633*up +  633*mhc +  633*mlc1 = 0  : 0; 
+ 			  614*msp300 +  633*up +  633*mhc +  633*mlc1 < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(actn) := 
+		 case 
+ 			  -6621*eve > 0  : 1; 
+ 			  -6621*eve = 0  : 0; 
+ 			  -6621*eve < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(up) := 
+		 case 
+ 			  614*msp300 +  633*prm +  633*mhc +  633*mlc1 > 0  : 1; 
+ 			  614*msp300 +  633*prm +  633*mhc +  633*mlc1 = 0  : 0; 
+ 			  614*msp300 +  633*prm +  633*mhc +  633*mlc1 < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(myo61f) := 
+		 case 
+ 			  4139*msp300 > 0  : 1; 
+ 			  4139*msp300 = 0  : 0; 
+ 			  4139*msp300 < 0  : -1; 
+ 			 
+ 		 esac; 
+
+	 next(msp300) := msp300;
+
+
+SPEC A(msp300 = 1 -> AX(mlc1 = 1))
+
+SPEC AG(msp300 = 1 -> AF(twi <=0) )
+
+SPEC AG(msp300 = 1 -> AF(twi >0) )
+
+SPEC AG(mhc =1 -> AF(prm > 0 & mlc1 > 0 & up = 1))
+
+SPEC AG((mlc1 = 1 | msp300= 1 -> AF(twi <= 0 & up >= 0)))
+
+SPEC EG((mlc1 = 1 | msp300= 1 -> EF(twi <= 0 & up >= 0)))
+
+SPEC AG((mhc = 1 -> AF(msp300 = 1)) -> EF(msp300 = 1 -> mhc <= 0))

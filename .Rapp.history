@@ -1,0 +1,684 @@
+write.table(x, file = "dros3.txt", sep = "", row.names=FALSE)
+write.table(x, file = "dros3.txt", sep = "", row.names=FALSE, col.names=TRUE)
+write.table(x, file = "dros3.txt", sep = "", row.names=FALSE, col.names=FALSE)
+x=read.csv(file="dros1.csv",header=T)
+write.table(x, file = "dros3.txt", sep = "", row.names=FALSE, col.names=FALSE)
+write.table(x, file = "dros3.txt", sep = " ", row.names=FALSE, col.names=TRUE)
+head(x)
+dim(x)
+load("/Users/hgong2/Desktop/Dropbox/05-ANU/05-Research/Changepoint/changepoint-RCode/drosophila_data_11genes.Rdata")#
+x=drosophila_data_11genes#
+dim(x)#
+n=67#
+p=11
+niter = 200#
+result = NULL#
+threshold <- compute.threshold(n,p)  # precompute threshold to save time#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=threshold)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+table(unlist(result))
+n=11#
+p=67
+niter = 200#
+result = NULL#
+threshold <- compute.threshold(n,p)  # precompute threshold to save time#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=threshold)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+x=drosophila_data_11genes#
+dim(x)#
+n=67#
+p=11#
+#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+head(x)
+x=drosophila_data_11genes#
+dim(x)#
+x=t(x)#
+n=67#
+p=11#
+#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+niter = 200#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+n=67#
+p=11
+threshold <- compute.threshold(n,p)  # precompute threshold to save time#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=threshold)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+n=11
+p=67
+threshold <- compute.threshold(n,p)  # precompute threshold to save time#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=threshold)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+x=drosophila_data_11genes
+locate.change(x)
+inspect(x)
+plot(x)
+x=drosophila_data_11genes
+plot(x)
+head(x)
+x= read.table(file="dros067.txt", sep="")
+head(x)
+x= read.table(file="dros067.txt", sep="")#
+#
+niter = 200#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+x=t(x)#
+niter = 200#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+niter = 500#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+niter = 50#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+niter = 50#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,2]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+tail(x)
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,3]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,4]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x)$changepoints[,2]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+help(inspect$changepoints)
+help(inspect)
+n <- 500; p <- 100; ks <- 30; zs <- c(125,250,375); varthetas <- c(0.1,0.15,0.2); overlap <- 0.5#
+obj <- multi.change(n, p, ks, zs, varthetas, overlap)#
+x <- obj$x#
+threshold <- compute.threshold(n,p)#
+ret <- inspect(x, threshold = threshold)#
+ret#
+summary(ret)#
+plot(ret)
+n <- 500; p <- 100;
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+niter = 50#
+result = NULL
+y=inspect(x, threshold=threshold)
+plot(y)
+y
+y=inspect(x, threshold=threshold)
+y
+n=67#
+p=11
+threshold <- compute.threshold(n,p)
+y=inspect(x, threshold=threshold)
+y
+n=2000
+p=100
+threshold <- compute.threshold(n,p)
+y=inspect(x, threshold=threshold)
+y
+y=inspect(x, lambda=0.5, threshold=threshold)
+y
+y=inspect(x, lambda=1.5, threshold=threshold)
+y
+y=inspect(x, lambda=0.1, threshold=threshold)
+y
+y=inspect(x, lambda=0.9)
+y
+y=inspect(x, lambda=0.1)
+y
+y=inspect(x, lambda=0.5, schatten=1)
+y
+y=inspect(x, schatten=1)
+y
+y=inspect(x, schatten=1, threshold=threshold)
+y
+y=inspect(x, schatten=1, threshold=threshold, M=0.5)
+y
+y=inspect(x, schatten=1, threshold=threshold, M=1.5)
+y
+y=inspect(x, schatten=1, M=1.5)
+y
+y=inspect(x, schatten=1, lambda=1,M=1.5)
+y
+y=inspect(x, lambda=0.1, threshold=5)
+y
+y=inspect(x, lambda=0.1, threshold=0.5)
+y
+y=inspect(x, lambda=0.1, threshold=10)
+y
+y=inspect(x, lambda=0.1, threshold=20)
+y
+y=inspect(x, lambda=0.1, threshold=25)
+y
+y=inspect(x, lambda=0.1, threshold=29)
+y
+y=inspect(x, lambda=0.1, threshold=290)
+y
+y=inspect(x, threshold=290)
+y
+y=inspect(x, threshold=29)
+y
+y=inspect(x, threshold=29, schatten=1)
+y
+y=inspect(x, threshold=29, schatten=1, lambda=0.9)
+y
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=25)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=30)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=40)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+niter = 100#
+result = NULL#
+#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=40)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+y=inspect(x, threshold=40)
+plot(y)
+x=drosophila#
+x=t(x)
+y=inspect(x, threshold=40)
+plot(y)
+y
+y=inspect(x, threshold=400)
+y
+y=inspect(x, threshold=4000)
+y
+y=inspect(x, threshold=4)
+y
+y=inspect(x, threshold=20)
+y
+x=drosophila
+y=inspect(x, threshold=20)
+y
+y=inspect(t(x), threshold=20)
+y
+x=drosophila#
+x=t(x)
+dim(x)
+y=inspect(x)
+y
+x=drosophila
+y=inspect(x)
+y
+x=drosophila_data_11genes#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+x=drosophila_data_11genes#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+x=scale(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+niter = 200#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=40)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+table(unlist(result))
+y=inspect(x, threshold=7)
+y
+plot(y)
+max(x)
+min(x)
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y
+max(x)
+min(x)
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=9)#
+y
+library(ARTIVA)#
+x=drosophila
+head(x)
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)
+head(x)
+x=drosophila#
+x=t(x)#
+y=inspect(x, threshold=40)
+y
+x=drosophila#
+x=t(x)#
+y=inspect(x, threshold=4)
+y
+x=drosophila#
+x=t(x)#
+y=inspect(x, threshold=15)
+y
+x=drosophila#
+y=inspect(x, threshold=40)
+y
+head(x)
+x[,1]
+x[1,]
+x=drosophila#
+x = x[1:100,]#
+y=inspect(x, threshold=400)
+y
+y=inspect(x, threshold=40)
+y
+x = x[1:300,]#
+y=inspect(x, threshold=40)
+x=drosophila#
+x = x[1:300,]#
+y=inspect(x, threshold=40)
+y
+y=inspect(x, threshold=80)
+y
+y=inspect(x, threshold=90)
+y
+y=inspect(x, threshold=120)
+y
+y=inspect(x, threshold=150)
+y
+y=inspect(x, threshold=130)
+y
+plot(y)
+x=drosophila#
+x = x[1:900,]#
+y=inspect(x, threshold=80)
+y#
+plot(y)
+y=inspect(x, threshold=150)#
+y#
+plot(y)
+y=inspect(x, threshold=180)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:1200,]#
+y=inspect(x, threshold=200)#
+y#
+plot(y)
+10*n/p
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=60)#
+y#
+plot(y)
+5*n/p
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+x= read.table(file="dros067.txt", sep="")#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=31)#
+y#
+plot(y)
+5*1200/60
+x=drosophila#
+x = x[1:1200,]#
+y=inspect(x, threshold=100)#
+y#
+plot(y)
+y=inspect(x, threshold=120)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:1000,]#
+y=inspect(x, threshold=100)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:1000,]#
+y=inspect(x, threshold=150)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:1000,]
+niter = 100#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=180)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+x=drosophila#
+x = x[1:400,]#
+y=inspect(x, threshold=120)#
+y#
+plot(y)
+niter = 100#
+result = NULL#
+for (i in 1:niter){#
+  result[[i]] = inspect(x, threshold=120)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+x=drosophila#
+x = x[1:30,]#
+y=inspect(x, threshold=20)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:60,]#
+y=inspect(x, threshold=20)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:60,]#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:60,]#
+y=inspect(x, threshold=60)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:100,]#
+y=inspect(x, threshold=60)#
+y#
+plot(y)
+plot(y, ylabel="number of genes")
+plot(y, ylab="number of genes")
+100/67
+x=drosophila#
+x = x[1:100,]#
+y=inspect(x, threshold=100)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:100,]#
+y=inspect(x, threshold=80)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:1000,]#
+y=inspect(x, threshold=150)#
+y#
+plot(y)
+x=drosophila#
+x = x[1:1000,]#
+y=inspect(x, threshold=180)#
+y#
+plot(y)
+y=inspect(x, threshold=170)#
+y
+help(sample)
+x=drosophila#
+x = x[sample(1:4028, 500),]#
+y=inspect(x, threshold=100)#
+y
+x = x[sample(1:4028, 500),]#
+y=inspect(x, threshold=150)#
+y#
+plot(y)
+x=drosophila#
+x = x[sample(1:4028, 500),]#
+y=inspect(x, threshold=150)#
+y#
+plot(y)
+niter = 100#
+result = NULL#
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 500),]#
+  result[[i]] = inspect(x, threshold=150)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+niter = 500#
+result = NULL#
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 500),]#
+  result[[i]] = inspect(x, threshold=150)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)))
+plot(table(unlist(result)), xlab = "time points", ylab="frequencies")
+x=drosophila_data_11genes#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y)
+plot(y, xlab="time points", ylab="genes")
+plot(table(unlist(result)), xlab = "time points", ylab="frequencies", main="A")
+x=drosophila#
+threshold <- compute.threshold(67,100)#
+niter = 200#
+result = NULL#
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 100),]#
+  result[[i]] = inspect(x, threshold=threshold)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)), xlab = "time points", ylab="frequencies", main="A")
+x=drosophila#
+threshold <- compute.threshold(100, 67)#
+niter = 200#
+result = NULL#
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 100),]#
+  result[[i]] = inspect(x, threshold=threshold)$changepoints[,1]#
+  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)), xlab = "time points", ylab="frequencies", main="A")
+x=drosophila_data_11genes#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=40)#
+y#
+plot(y, xlab="time points", ylab="Genes")
+plot(y, xlab="time points", ylab="Genes", main="A")
+340*4
+load("drosophila_data_11genes.Rdata")
+load("drosophila_data_11genes.Rdata")#
+#
+#original changepoints: 31, 41, 59#
+library(InspectChangepoint)#
+#
+x=drosophila_data_11genes#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=50)#
+y#
+plot(y, xlab="time points", ylab="Genes", main="A")
+plot(y, xlabel="time points", ylabel="Genes", main="A")
+help(plot)
+par(mfrow=c(2,1))#
+x=drosophila_data_11genes#
+x=t(x)#
+dim(x)#
+n=67#
+p=11#
+y=inspect(x, threshold=c(25,50))#
+y#
+plot(y, xlab="time points", ylab="Genes", main="A")
+y=inspect(x, threshold=25)#
+y#
+plot(y, xlab="time points", ylab="Genes", main="A")#
+#
+y=inspect(x, threshold=50)#
+y#
+plot(y, xlab="time points", ylab="Genes", main="B")
+par(mfrow=c(2,1))#
+plot(y, xlab="time points", ylab="Genes", main="A")#
+#
+y=inspect(x, threshold=50)#
+y#
+plot(y, xlab="time points", ylab="Genes", main="B")
+y=inspect(x, threshold=25)#
+y#
+par(mfrow=c(2,1))#
+plot(y, xlab="time points", ylab="Genes", main="A")#
+#
+y=inspect(x, threshold=50)#
+y#
+plot(y, xlab="time points", ylab="Genes", main="B")
+y=inspect(x, threshold=25)#
+y#
+plot(y, xlab="time, \lambda = 25", ylab="Genes", main="A")
+plot(y, xlab="time, $\lambda$ = 25", ylab="Genes", main="A")
+plot(y, xlab="time, threshold = 25", ylab="Genes", main="A")
+plot(y, xlab='time, threshold = 25', ylab='Genes', main='A')
+title(xlab="time point")
+plot(y, xlab='', ylab='Genes', main='A')
+plot(y, xlab=' ', ylab='Genes', main='A')
+load("drosophila_data_11genes.Rdata")#
+#
+#original changepoints: 31, 41, 59#
+library(InspectChangepoint)#
+#
+## more than 4000 genes#
+library(ARTIVA)#
+x=drosophila#
+#
+niter = 100#
+result = NULL#
+#
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 400),]#
+  result[[i]] = inspect(x, threshold=175)$changepoints[,1]#
+#  printPercentage(i, niter)#
+}#
+plot(table(unlist(result)), xlab = "time points", ylab="frequencies", main="threshold = ??")
+x
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 400),]#
+  result[[i]] = inspect(x, threshold=150)$changepoints[,1]#
+}#
+plot(table(unlist(result)))
+library(ARTIVA)#
+x=drosophila#
+#
+x = x[sample(1:4028, 500),]#
+y=inspect(x, threshold=100)#
+y#
+plot(y)
+niter = 100#
+result = NULL#
+#
+for (i in 1:niter){#
+x=drosophila#
+x = x[sample(1:4028, 400),]#
+  result[[i]] = inspect(x, threshold=150)$changepoints[,1]#
+}#
+plot(table(unlist(result)))
